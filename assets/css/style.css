@@ -1,0 +1,616 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    background: #FFFDEC;
+    zoom : 75%;
+}
+html {
+    scroll-behavior: smooth;
+}
+:root{
+    --color_text-primary: #FFFDEC;
+    --color_text-secundary: #6C8D6F;
+    --color_text-tertiary: #FFE2E2;
+    --main_color-primary: #FFFDEC;
+    --main_color-secundary: #6C8D6F;
+    --main_color-tertiary: #FFE2E2;
+    --background-color: #FFFDEC;
+    --lowText_font_size: 30px; /*esa es la que sale en la navbar*/
+    --text_size_title: 40px;
+    --text_title_card: 30px;
+    --text_title_cardv2: 20px;
+    --text_paragraph: 30px; /*de los parrafos*/
+    --box_shadow-primary: 0px 6px 50px -20px rgba(0,0,0,0.2);
+    --text_footer-title: 24px;
+    --text_footer-p: 16px;
+}
+/*barra superior*/
+header{
+    width: 100%;
+    height: 140px;
+    position: relative; /*el fixed hace que se ponga encima de todo*/
+    z-index: 100;
+    background: var(--color_text-tertiary);
+    overflow: visible;
+}
+.header-wave-divider {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 25px; /* Altura de la onda */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L100 0 L100 10 C80 10 70 35 50 35 C30 35 20 10 0 10 Z' fill='%23FFE2E2'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 80px 25px; /* Ajusta el tamaño de la onda para que se repita como quiero */
+}
+
+
+.container__header{
+    max-width: 1800px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.menu-left,
+.menu-right {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.menu-left {
+    justify-content: flex-end;
+}
+.menu-right {
+    justify-content: flex-start;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+}
+.logo img {
+    width: 180px;
+    margin-top: 30px;
+}
+
+.menu-left ul,
+.menu-right nav ul {
+    display: flex;
+    list-style: none;
+}
+.menu-left ul li,
+.menu-right nav ul li {
+    margin: 0 16px;
+}
+.menu-left ul li a,
+.menu-right nav ul li a {
+    color: var(--color_text-secundary);
+    font-size: var(--lowText_font_size);
+    position: relative;
+}
+.menu-left ul li a:hover,
+.menu-right nav ul li a:hover {
+    color: var(--color_text-primary);
+}
+
+.menu-right {
+    gap: 10px;
+}
+.menu-right .actions {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.menu-right .actions a {
+    margin: 0 7px;
+}
+.menu-right .actions img {
+    width: 40px;
+}
+/*barra superior (hasta aquí)*/
+
+/*Portada de inicio*/
+.container__cover{
+    padding-top: 30px;
+    padding-bottom: 100px;
+    background: var(--main_color-primary);
+}
+
+.cover{
+    max-width: 1800px;  /*eso es lo que deja el margen*/
+    margin: auto; /*como todo se va a la izquierda, esto hace que se alinee a la derecha*/
+    margin-top: 30px;
+    display: block;
+    position: relative;
+    align-items: center;
+    padding: 0px 20px; /*ese 20 es a los costados*/
+    flex-direction: column;
+    }
+    .text__cover{
+        position: absolute; /*hace que el texto se ponga sobre la imagen*/
+        z-index: 2; /*pone el texto sobre la imagen*/
+        left: 40px; /* separa el texto de la izquierda*/
+        max-width: 550px;
+        padding-right: 100px;
+    }
+    .text__cover h1{
+        margin-top: 250px;
+        margin-bottom: 2px;
+        font-size: 50px;
+        font-weight: 200;
+        color: var(--color_text-primary);
+    }
+    .text__cover p{
+        font-size: var(--text_paragraph);
+        margin-top: 150px; /* con esto baje el texto para que no quede pagado a la imagen de la torta grande*/
+        color: var(--color_text-secundary);
+        text-align: center;
+    }
+    .btn__text{
+        display: block; /*como es una etiqueta a, hace que se convierta en un bloque/boton*/
+        width: 300px;
+        margin-top: 20px;
+        margin: 30px auto 0px auto; /* Esto centra el bloque: auto a izquierda y derecha */
+        padding: 10px 20px;
+        font-size: var(--text_paragraph);
+        text-align: center;
+        font-weight: 500; /*grosor del texto*/
+        background: var(--main_color-secundary);
+        color: var(--color_text-primary);
+        border-radius: 60px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: all 300ms;
+    }
+    .btn__text:hover{
+        background: transparent;
+        border:  2px solid var(--main_color-secundary);
+        color: var(--color_text-secundary);
+    }
+    .image__cover{
+        width: 100%;
+        inset: 0; /*hace que ocupe el espacio*/
+        z-index: 0;
+        position: relative;
+    }
+    .image__cover img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .mini__images-cover{
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        justify-content: flex-end;
+        position: relative;
+    }
+    .mini__images-cover img{
+        width: 300px; /* Ajusta el ancho a un tamaño más grande */
+        height: 300px; /* Aumenta la altura para que sean más grandes */
+        object-fit: cover;
+        border-radius: 10px; 
+    }
+    /*portada de inicio hasta aquí*/
+
+    /*INDEX/LOGIN*/
+    .container__all{
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        margin-top: 100px;
+        position: relative;
+        margin-bottom: 135px; /*marggen de abajo para que el footer no lo tape*/
+    }
+
+    .back__box{
+        width: 100%;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 226, 226, 0.6); /*rgba del rosado*/
+        border-radius: 20px;
+    }
+
+    .back__box div{
+        margin: 100px 40px;
+        color: var(--color_text-secundary);
+        transition: all 500ms;
+    }
+    .back__box div p,
+    .back__box div button{
+        margin-top: 30px;
+    }
+    .back__box div h3{
+        font-weight: 400;
+        font-size: var(--text_size_title);
+    }
+
+    .back__box button{
+        padding: 10px 40px;
+        border: 1px transparent;
+        background: var(--main_color-secundary);
+        border-radius: 60px;
+        cursor: pointer;
+        font-size: var(--text_footer-p);
+        font-weight: 600;
+        color: var(--main_color-primary);
+        outline: none; /*hace que se quite la línea negra que sale en los bordes cuando se toca*/
+        transition: all 300ms;
+    }
+    .back__box button:hover{
+        border: 2px solid var(--main_color-secundary);
+        background: transparent;
+        color: var(--main_color-secundary);
+    }
+    /*Formulariosss*/
+
+    .container__login-register{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 380px;
+        position: relative;
+        top: -220px;
+
+        transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275); /*lo que hace la animación del deslizamiento*/
+        left: 0px; /*espacio izquierdo del rosado al verde, creo q no me gusta*/
+    }
+
+    .container__login-register form h2{
+        font-size: var(--text_size_title);
+        text-align: center;
+        margin-bottom: 20px; /*espacio entre los input y el texto*/
+        color: var(--main_color-primary);
+    }
+
+    .container__login-register form input{
+        width: 100%;
+        margin-top: 20px; /*espacio entre los inputs*/
+        padding: 10px; /*el alto de los inputs*/
+        border: none;
+        background: var(--main_color-primary);
+        font-size: var(--text_footer-p);
+    }
+
+    .container__login-register form{
+        width: 100%;
+        padding: 80px 20px;
+        background: var(--main_color-secundary);
+        position: absolute;
+        border-radius: 20px;
+        outline: none; /*para que cuando vaya a escribir en el form, no salga el borde negro*/
+    }
+    .container__login-register form button{
+        padding: 10px 40px;
+        margin-top: 40px;
+        border: none;
+        font-size: var(--text_footer-p);
+        background: var(--main_color-primary);
+        color: var(--color_text-secundary);
+        cursor: pointer;
+        outline: none;
+        font-weight: 600;
+        border-radius: 60px;
+        transition: all 300ms;
+        margin-bottom: 20px;
+    }
+    .container__login-register form button:hover{
+        border: 2px solid var(--main_color-primary);
+        background: var(--main_color-secundary);
+        color: var(--color_text-primary);
+    }
+
+    .form__login{
+        opacity: 1;
+        display: block;
+    }
+    .form__register{
+        display: none; /*para que se vea el de iniciar sesión*/
+    }
+    /*INDEX/LOGIN HASTA AQUI*/
+
+    /*responsive desing del login*/
+
+    @media screen and (max-width: 850px){
+        main{
+            margin-top: 50px;
+            }
+            .back__box{
+                max-width: 350px;
+                height: 300px;
+                flex-direction: column;
+                margin: auto;
+            }
+            .back__box div{
+                margin: 0px;
+                position: absolute;
+            }
+            /*Formulario*/
+            .container__login-register{
+                top: -10px;
+                left: -5px;
+                margin: auto;
+            }
+            .container__login-register form{
+                position: relative;
+            }        
+    }
+
+    
+
+    /*responsive desing del login hasta aquí*/
+
+    /*Estilos generales CARDS*/
+
+    /*Seccion de productos*/
+    .container__card-primary{
+        padding-top: 100px;
+        padding-bottom: 60px;
+        background: var(--main_color-primary);
+    }
+    .card__primary{
+        max-width: 1800px; /*regla del anchor de la página*/
+        margin: auto;
+        text-align: center;
+        padding: 0px 20px; /*0 arriba y 20 de los lados*/
+    }
+    .text__card-primary{
+        max-width: 800px;
+        margin: auto;
+        grid-column: 1/ -1;
+    }
+    .text__card-primary h1{
+        margin-top: 50px;
+        color: var(--color_text-secundary);
+        letter-spacing: 2px; /*espacio entre letras*/
+        font-size: var(--text_size_title);
+    }
+
+    .text__card-primary {
+        position: relative; 
+    }
+
+    .container__box-cardPrimary{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px; /*espacio entre tarjetas*/
+        margin-top: 40px;
+        width: 100%;
+        max-width: 1800px;
+        margin: 40px auto;
+    }
+    .box__card-primary{
+        width: 100%;
+        max-width: 400px; 
+        padding: 40px 25px; 
+        background: var(--main_color-tertiary);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .box__card-primary:hover{
+        border: 1px solid transparent;
+        box-shadow: var(--box_shadow-primary);
+        transform: translateY(-10px); /* Hace que la tarjeta se eleve */
+        transition: transform 0.3s ease; /*hace que la animación no sea brusca */
+    }
+
+    .box__card-primary h2{
+        font-size: var(--text_title_card);
+        margin-top: 10px;
+        color: var(--color_text-secundary);
+    }
+    .box__card-primary p{
+        margin-top: 5px;
+        color: var(--color_text-secundary);
+        font-size: var(--text_paragraph);
+    }
+
+    .card__product img{
+        width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+        height: 200px; /* Altura fija para uniformar el tamaño de las imágenes */
+        border-radius: 10px 10px 0 0; 
+        object-fit: cover; 
+        margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+    }
+    .btn__text-agg{
+        display: block; /*como es una etiqueta a, hace que se convierta en un bloque/boton*/
+        width: 300px;
+        margin-top: 20px;
+        margin: 30px auto 0px auto; /* Esto centra el bloque: auto a izquierda y derecha */
+        padding: 10px 20px;
+        font-size: var(--text_paragraph);
+        text-align: center;
+        font-weight: 500; /*grosor del texto*/
+        background: var(--main_color-tertiary);
+        color: var(--color_text-secundary);
+        border-radius: 60px;
+        border: 2px solid var(--main_color-secundary);
+        cursor: pointer;
+        transition: all 300ms;
+    }
+    .btn__text-agg:hover{
+        background: var(--main_color-secundary);
+        border:  2px solid var(--color_text-secundary);
+        color: var(--color_text-primary);
+    }
+    /*productos hasta aquii*/
+
+    /*About uss*/
+    .container__about-us{
+        width: 100%;
+        max-width: 1800px;
+        margin: auto;
+        align-items: center;
+        display: flex;
+    }
+    .container__about-us img{
+        margin-top: 50px;
+        height: 600px;
+        border-radius: 10px 10px 0 0;
+        margin-bottom: 50px;
+    }
+    .container__about-us h1{
+        margin-top: 20px;
+        margin-bottom: 2px;
+        font-size: 50px;
+        text-align: center;
+        color:  var(--color_text-secundary);
+    }
+    .container__about-us h2{
+        margin-bottom: 2px;
+        font-size: var(--text_title_card);
+        text-align: center;
+        color: var(--main_color-secundary);
+    }
+    .container__about-us p{
+        margin-top: 50px;
+        margin-bottom: 10px;
+        max-width: 1800px;
+        font-size: var(--text_paragraph);
+        color: var(--color_text-secundary);
+        margin-left: 100px;
+    }
+    /*About uss hasta aquí*/
+
+    /*Contáctanos*/
+    .container__all-contact{
+        max-width: 1800px;
+        width: 100%;
+        display: flex;
+        margin-top: 50px;
+    }
+    .info__contact{
+        max-width: 800px;
+        text-align: left;
+        color: var(--color_text-secundary);
+        margin-left: 120px;
+    }
+    .info__contact h3{
+        font-size: var(--text_size_title);
+        color: var(--color_text-secundary);
+    }
+    .info__contact p{
+        margin-top: 30px;
+        font-size: var(--text_paragraph);
+        margin-bottom: 80px;
+    }
+    .info__contact h2{
+        margin-top: 50px;
+    }
+
+    .contact__form{
+        width: 100%;
+        max-width: 400px;
+        padding: 40px 20px;
+        margin-left: 100px;
+    }
+    .contact__form input{
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px;
+        border: none;
+        background: var(--main_color-secundary);
+        font-size: var(--text_footer-p);
+        color: var(--color_text-primary);
+        border-radius: 20px;
+    }
+    .contact__form
+    /*Contáctanos hasta aquí*/
+
+    /*footer*/
+    .footer {
+        background: var(--color_text-tertiary);
+        position: relative;
+        margin-top: 0;
+    }
+    .footer-wave {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        height: 25px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40 L100 40 L100 30 C80 30 70 5 50 5 C30 5 20 30 0 30 Z' fill='%23FFE2E2'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-size: 80px 25px;
+    }
+    .footer-content {
+        max-width: 1800px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        padding: 15px 40px;
+        gap: 20px;
+    }
+    .footer-info h3 {
+        color: var(--color_text-secundary);
+        font-size: var(--text_footer-title);
+    }
+    .footer-info p {
+        color: var(--color_text-secundary);
+        font-size: var(--text_footer-p);
+        margin-top: 8px;
+    }
+    .ornament {
+        width: 200px;
+        height: 28px;
+        margin: 6px auto;
+        background: url(../recursos/footer-Simbol.png) no-repeat center;
+        background-size: contain;
+    }
+    .footer-logo img {
+        width: 160px;
+    }
+    .footer-social {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+    .footer-social a {
+        display: flex;
+    }
+    .footer-social img {
+        width: 44px;
+        height: 44px;
+        object-fit: contain;
+    }
+    .footer-bottom {
+        background: var(--main_color-secundary);
+        color: var(--main_color-primary);
+        text-align: center;
+        padding: 12px 20px;
+        font-size: var(--text_footer-p);
+    }
+    .footer-bottom strong {
+        color: var(--main_color-primary);
+    }
+    .footer-bottom a{
+        color: var(--color_text-primary);
+        text-decoration: none;
+    }
+    /*footer hasta aquí*/
