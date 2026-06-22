@@ -534,8 +534,33 @@ header{
         font-size: var(--text_footer-p);
         color: var(--color_text-primary);
         border-radius: 20px;
+        outline: none; /*para que cuando vaya a escribir en el form, no salga el borde*/
+        box-shadow: none; 
+        caret-color: var(--color_text-primary); /* Cambia el color del cursor de texto */
     }
-    .contact__form
+    .contact__form input::placeholder{
+        color: var(--color_text-primary);
+        opacity: 0.85; 
+    }
+    .contact__form button{
+        padding: 10px 40px;
+        margin-top: 40px;
+        border: none;
+        font-size: var(--text_footer-p);
+        background: var(--main_color-secundary);
+        color: var(--color_text-primary);
+        cursor: pointer;
+        outline: none;
+        font-weight: 600; /*grosor de la letra*/
+        border-radius: 60px;
+        transition: all 300ms;
+    }
+    .contact__form button:hover{
+        border: 2px solid var(--main_color-secundary);
+        background: var(--main_color-primary);
+        color: var(--color_text-secundary);
+    }
+    
     /*Contáctanos hasta aquí*/
 
     /*footer*/
